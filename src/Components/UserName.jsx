@@ -1,9 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import userInfo from './../Services/UserApi/UserInfo'
 
 const UserName = () => {
+
+    const [info, setInfo] = useState("")
+
+    const user = async () => {
+        const info = await userInfo()
+        setInfo(info.data)
+    }
+
+    useEffect(() => {
+        user()
+    }, [])
+
     return (
         <div>
-            <p>fdsqjlnk</p>
+            <p>{info.firstname}, {info.lastname}</p>
         </div>
     )
 }

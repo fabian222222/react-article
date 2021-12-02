@@ -4,7 +4,7 @@ import UserName from '../Components/UserName'
 const UserInfo = () => {
     return (
         <div>
-            <p>fsj</p>
+            <UserName></UserName>
         </div>
     )
 }

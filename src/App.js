@@ -3,7 +3,9 @@ import RegisterPage from './Pages/Register'
 import LoginPage from './Pages/Login'
 import {StoreProvider} from './Providers/StoreProvider'
 import PrivateRoute from './Pages/PrivateRoute';
-import UserInfo from './Services/UserApi/UserInfo';
+import UserInfo from './Pages/UserInfo';
+import UserUpdate from './Pages/UserUpdate';
+import Article from './Pages/Article' ;
 
 function App() {
     return (
@@ -16,8 +18,17 @@ function App() {
                         <PrivateRoute>
                             <UserInfo></UserInfo>
                         </PrivateRoute>
-                    }>
-                    </Route>
+                    }></Route>
+                    <Route path="/me/update" element={
+                        <PrivateRoute>
+                            <UserUpdate></UserUpdate>
+                        </PrivateRoute>
+                    }></Route>
+                     <Route path="/articles" element={
+                        <PrivateRoute>
+                            <Article></Article>
+                        </PrivateRoute>
+                    }></Route>
                 </Routes>
             </BrowserRouter>
         </StoreProvider>
