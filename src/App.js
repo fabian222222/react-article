@@ -5,12 +5,17 @@ import {StoreProvider} from './Providers/StoreProvider'
 import PrivateRoute from './Pages/PrivateRoute';
 import UserInfo from './Pages/UserInfo';
 import UserUpdate from './Pages/UserUpdate';
-import Article from './Pages/Article' ;
+import Articles from './Pages/Articles' ;
+import ArticleSinglePage from './Pages/ArticleSinglePage' ;
+import ArticleFormPage from './Pages/ArticleFormPage';
+import Header from './Components/Header'
+import Map from './Components/Map'
 
 function App() {
     return (
         <StoreProvider>
             <BrowserRouter>
+                <Header></Header>
                 <Routes>
                     <Route path="/register" element={<RegisterPage />}></Route>
                     <Route path="/login" element={<LoginPage />}></Route>
@@ -24,13 +29,23 @@ function App() {
                             <UserUpdate></UserUpdate>
                         </PrivateRoute>
                     }></Route>
-                     <Route path="/articles" element={
+                    <Route path="/articles" element={
                         <PrivateRoute>
-                            <Article></Article>
+                            <Articles></Articles>
+                        </PrivateRoute>
+                    }></Route>
+                    <Route path="/articles/:id" element={
+                        <ArticleSinglePage></ArticleSinglePage>
+                    }>
+                    </Route>
+                    <Route path="/articles/create" element={
+                        <PrivateRoute>
+                            <ArticleFormPage></ArticleFormPage>
                         </PrivateRoute>
                     }></Route>
                 </Routes>
             </BrowserRouter>
+            <Map></Map>
         </StoreProvider>
     );
 }

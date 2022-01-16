@@ -1,6 +1,6 @@
 const baseUrl  = "http://edu.project.etherial.fr/"
 
-const UpdateUser = async (update) => {
+const UpdateUser = async ({update}) => {
     const response = await fetch(`${baseUrl}users/me`, {
         method:"PUT",
         headers : {

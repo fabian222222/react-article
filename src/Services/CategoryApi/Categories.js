@@ -3,11 +3,10 @@ export const Categories = async () => {
     const response = await fetch(`${baseUrl}articles/categories`, {
         method : "GET", 
         headers: {
-            'Content-Type' : "application/json"
+            'Content-Type':'application/json'
         }
     })
 
-    const json = await response.json
-    console.log(json);
+    const json = await response.json()
     return json
 }

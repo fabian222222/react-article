@@ -1,7 +1,7 @@
 const baseUrl  = "http://edu.project.etherial.fr/"
 
-export const ArticlesApi = async (offset) => {
-    const response = await fetch(`${baseUrl}articles?limit=10&offset=${offset}0`, {
+export const Article = async (id) => {
+    const response = await fetch(`${baseUrl}articles/${id}`, {
         method : "GET",
         headers: {
             "Content-Type": "application/json"
@@ -9,5 +9,7 @@ export const ArticlesApi = async (offset) => {
     })
 
     const json = await response.json()
+    console.log(json);
     return json
 }
+
